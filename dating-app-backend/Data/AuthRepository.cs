@@ -26,6 +26,7 @@ namespace dating_app_backend.Data
             {
                 return null;
             }
+            return user;
         }
 
         // Verify user password
