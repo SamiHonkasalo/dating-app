@@ -20,6 +20,7 @@ namespace dating_app_backend.Controllers
             _context = context;
         }
         // GET api/values
+        [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> GetValues()
         {
