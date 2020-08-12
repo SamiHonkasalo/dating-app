@@ -1,8 +1,8 @@
 using System;
 
-namespace dating_app_backend.Models
+namespace dating_app_backend.Dtos
 {
-    public class Photo
+    public class PhotoForReturnDto
     {
         public int Id { get; set; }
         public string Url { get; set; }
@@ -10,8 +10,5 @@ namespace dating_app_backend.Models
         public DateTime DateAdded { get; set; }
         public bool IsMain { get; set; }
         public string PublicId { get; set; }
-        public User User { get; set; }
-        public int UserId { get; set; }
-
     }
 }
