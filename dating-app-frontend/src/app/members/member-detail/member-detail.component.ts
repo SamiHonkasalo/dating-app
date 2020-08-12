@@ -8,6 +8,7 @@ import {
   NgxGalleryImage,
   NgxGalleryOptions,
   NgxGalleryAnimation,
+  NgxGalleryImageSize,
 } from '@kolkov/ngx-gallery';
 
 @Component({
@@ -32,6 +33,7 @@ export class MemberDetailComponent implements OnInit {
         width: '500px',
         height: '500px',
         imagePercent: 100,
+        imageSize: NgxGalleryImageSize.Contain,
         thumbnailsColumns: 4,
         imageAnimation: NgxGalleryAnimation.Slide,
         preview: false,
