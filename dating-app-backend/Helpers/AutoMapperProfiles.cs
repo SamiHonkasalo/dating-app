@@ -23,6 +23,7 @@ namespace dating_app_backend.Helpers
             CreateMap<Photo, PhotoForReturnDto>();
 
             CreateMap<UserForUpdateDto, User>();
+            CreateMap<UserForRegisterDto, User>();
         }
     }
 }
