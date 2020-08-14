@@ -5,11 +5,13 @@ using System.Threading.Tasks;
 using AutoMapper;
 using dating_app_backend.Data;
 using dating_app_backend.Dtos;
+using dating_app_backend.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace dating_app_backend.Controllers
 {
+    [ServiceFilter(typeof(LogUserActivity))]
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
