@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using dating_app_backend.Helpers;
 using dating_app_backend.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -41,10 +42,10 @@ namespace dating_app_backend.Data
             return user;
         }
 
-        public Task<List<User>> GetUsers()
+        public async Task<PagedList<User>> GetUsers(UserParams userParams)
         {
-            var users = _context.Users.Include(p => p.Photos).ToListAsync();
-            return users;
+            var users = _context.Users.Include(p => p.Photos);
+            return await PagedList<User>.CreateAsync(users, userParams.PageNumber, userParams.PageSize);
         }
 
         public async Task<bool> SaveAll()
