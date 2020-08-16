@@ -30,10 +30,25 @@ export class UserService {
     }
 
     if (userParams) {
-      params = params.append('minAge', userParams.minAge.toString());
-      params = params.append('maxAge', userParams.maxAge.toString());
-      params = params.append('gender', userParams.gender);
-      params = params.append('orderBy', userParams.orderBy);
+      params = userParams.minAge
+        ? params.append('minAge', userParams.minAge.toString())
+        : params;
+      params = userParams.maxAge
+        ? params.append('maxAge', userParams.maxAge.toString())
+        : params;
+      params = userParams.gender
+        ? params.append('gender', userParams.gender)
+        : params;
+      params = userParams.orderBy
+        ? params.append('orderBy', userParams.orderBy)
+        : params;
+    }
+
+    if (userParams?.like === 'Likers') {
+      params = params.append('likers', 'true');
+    }
+    if (userParams?.like === 'Likees') {
+      params = params.append('likees', 'true');
     }
 
     return this.http
@@ -65,8 +80,11 @@ export class UserService {
       {}
     );
   }
-
   deletePhoto(userId: number, id: number) {
     return this.http.delete(this.baseUrl + userId + '/photos/' + id);
+  }
+
+  sendLike(id: number, recipientId: number) {
+    return this.http.post(this.baseUrl + '/' + id + '/like/' + recipientId, {});
   }
 }

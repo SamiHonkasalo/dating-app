@@ -3,4 +3,5 @@ export interface UserParams {
   minAge?: number;
   maxAge?: number;
   orderBy?: string;
+  like?: 'Likers' | 'Likees';
 }
