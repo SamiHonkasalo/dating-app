@@ -18,7 +18,7 @@ export class MemberListResolver implements Resolve<User[]> {
   ) {}
 
   resolve(): Observable<User[]> {
-    return this.userService.getUsers(1, 5).pipe(
+    return this.userService.getUsers(this.pageNumber, this.pageSize).pipe(
       catchError(() => {
         this.alertify.error('Problem retrieving data');
         this.router.navigate(['/home']);
