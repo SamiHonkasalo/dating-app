@@ -25,6 +25,7 @@ namespace dating_app_backend
                 catch (System.Exception ex)
                 {
                     var logger = services.GetRequiredService<ILogger<Program>>();
+                    logger.LogError("---------------------------------------------");
                     logger.LogError(ex, "An error occurred during migration");
                 }
             }
