@@ -47,7 +47,7 @@ namespace dating_app_backend
             services.AddDbContext<DataContext>(x =>
             {
                 x.UseLazyLoadingProxies();
-                x.UseMySql(Configuration.GetConnectionString("Default"));
+                x.UseSqlServer(Configuration.GetConnectionString("Default"));
             });
             ConfigureServices(services);
         }
