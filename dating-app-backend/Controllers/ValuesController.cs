@@ -9,7 +9,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace dating_app_backend.Controllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ValuesController : ControllerBase

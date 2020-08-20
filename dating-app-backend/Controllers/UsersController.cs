@@ -13,7 +13,6 @@ using Microsoft.AspNetCore.Mvc;
 namespace dating_app_backend.Controllers
 {
     [ServiceFilter(typeof(LogUserActivity))]
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase

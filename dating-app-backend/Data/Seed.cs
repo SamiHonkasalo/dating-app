@@ -18,9 +18,9 @@ namespace dating_app_backend.Data
                     byte[] passwordHash, passwordSalt;
                     CreatePasswordHash("password", out passwordHash, out passwordSalt);
 
-                    user.PasswordHash = passwordHash;
-                    user.PassWordSalt = passwordSalt;
-                    user.Username = user.Username.ToLower();
+                    // user.PasswordHash = passwordHash;
+                    // user.PassWordSalt = passwordSalt;
+                    user.UserName = user.UserName.ToLower();
                     context.Users.Add(user);
                 }
 

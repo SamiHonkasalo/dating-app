@@ -12,6 +12,7 @@ namespace dating_app_backend.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Username = table.Column<string>(nullable: true),
                     PasswordHash = table.Column<byte[]>(nullable: true),
@@ -37,6 +38,7 @@ namespace dating_app_backend.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
+                    .Annotation("Sqlite:Autoincrement", true)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: true)
                 },
@@ -74,6 +76,7 @@ namespace dating_app_backend.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
+                    .Annotation("Sqlite:Autoincrement", true)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     SenderId = table.Column<int>(nullable: false),
                     RecipientId = table.Column<int>(nullable: false),
@@ -106,6 +109,7 @@ namespace dating_app_backend.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
+                    .Annotation("Sqlite:Autoincrement", true)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Url = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
