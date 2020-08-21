@@ -10,8 +10,8 @@ using dating_app_backend.Data;
 namespace dating_app_backend.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200821161947_ProductionMigration")]
-    partial class ProductionMigration
+    [Migration("20200821174805_ProdMigration")]
+    partial class ProdMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -39,7 +39,7 @@ namespace dating_app_backend.Data
                 if (result.Succeeded)
                 {
                     var admin = userManager.FindByNameAsync("Admin").Result;
-                    userManager.AddToRolesAsync(admin, new[] { "Admin", "Moderator" });
+                    userManager.AddToRolesAsync(admin, new[] { "Admin", "Moderator" }).Wait();
                 }
 
                 foreach (var user in users)
@@ -50,7 +50,7 @@ namespace dating_app_backend.Data
                     }
 
                     userManager.CreateAsync(user, "password").Wait();
-                    userManager.AddToRoleAsync(user, "Member");
+                    userManager.AddToRoleAsync(user, "Member").Wait();
                 }
             }
         }

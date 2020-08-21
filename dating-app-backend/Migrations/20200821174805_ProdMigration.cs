@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace dating_app_backend.Migrations
 {
-    public partial class ProductionMigration : Migration
+    public partial class ProdMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
