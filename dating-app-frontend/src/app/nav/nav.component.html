@@ -12,6 +12,13 @@
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" [routerLink]="['/messages']">Messages</a>
       </li>
+      <li
+        *appHasRole="['Admin', 'Moderator']"
+        class="nav-item"
+        routerLinkActive="active"
+      >
+        <a class="nav-link" [routerLink]="['/admin']">Admin</a>
+      </li>
     </ul>
 
     <div *ngIf="loggedIn()" class="dropdown" dropdown>
@@ -22,7 +29,7 @@
         />
       </span>
       <a class="dropdown-toggle text-light" dropdownToggle>
-        Welcome {{ authService.currentUser?.username | titlecase }}
+        Welcome {{ authService.currentUser?.userName | titlecase }}
       </a>
 
       <div class="dropdown-menu mt-3" *dropdownMenu>

@@ -79,7 +79,7 @@ namespace dating_app_backend.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateMessage(int userId, MessageForCreationDto messageForCreationDto)
         {
-            var sender = await _repo.GetUser(userId);
+            var sender = await _repo.GetUser(userId, false);
 
             // Check if user is the one trying to edit the info
             if (sender.Id != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
@@ -89,7 +89,7 @@ namespace dating_app_backend.Controllers
 
             messageForCreationDto.SenderId = userId;
 
-            var recipient = await _repo.GetUser(messageForCreationDto.RecipientId);
+            var recipient = await _repo.GetUser(messageForCreationDto.RecipientId, false);
 
             if (recipient == null)
             {

@@ -83,6 +83,13 @@ namespace dating_app_backend
                 };
             });
 
+            services.AddAuthorization(opt =>
+            {
+                opt.AddPolicy("RequireAdminRole", policy => policy.RequireRole("Admin"));
+                opt.AddPolicy("ModeratePhotoRole", policy => policy.RequireRole(new[] { "Admin", "Moderator" }));
+                opt.AddPolicy("VipOnly", policy => policy.RequireRole("VIP"));
+            });
+
 
             services.AddControllers(options =>
             {

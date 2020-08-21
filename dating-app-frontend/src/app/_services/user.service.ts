@@ -83,7 +83,7 @@ export class UserService {
     );
   }
   deletePhoto(userId: number, id: number) {
-    return this.http.delete(this.baseUrl + userId + '/photos/' + id);
+    return this.http.delete(this.baseUrl + '/' + userId + '/photos/' + id);
   }
 
   sendLike(id: number, recipientId: number) {

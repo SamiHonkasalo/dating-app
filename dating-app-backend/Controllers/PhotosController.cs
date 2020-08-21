@@ -57,7 +57,7 @@ namespace dating_app_backend.Controllers
             {
                 return Unauthorized();
             }
-            var userFromRepo = await _repo.GetUser(userId);
+            var userFromRepo = await _repo.GetUser(userId, true);
 
             var file = photoForCreationDto.File;
 
@@ -81,11 +81,6 @@ namespace dating_app_backend.Controllers
 
             var photo = _mapper.Map<Photo>(photoForCreationDto);
 
-            if (!userFromRepo.Photos.Any(u => u.IsMain))
-            {
-                photo.IsMain = true;
-            }
-
             userFromRepo.Photos.Add(photo);
 
             if (await _repo.SaveAll())
@@ -106,7 +101,7 @@ namespace dating_app_backend.Controllers
             }
 
             // Check if photo actually belongs to the user
-            var user = await _repo.GetUser(userId);
+            var user = await _repo.GetUser(userId, true);
             if (!user.Photos.Any(p => p.Id == id))
             {
                 return Unauthorized();
@@ -141,7 +136,7 @@ namespace dating_app_backend.Controllers
             }
 
             // Check if photo actually belongs to the user
-            var user = await _repo.GetUser(userId);
+            var user = await _repo.GetUser(userId, true);
             if (!user.Photos.Any(p => p.Id == id))
             {
                 return Unauthorized();
